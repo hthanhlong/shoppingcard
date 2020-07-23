@@ -1,0 +1,9 @@
+.test {
+  display: flex;
+  height: 3.2rem;
+  justify-content: center;
+}
+.test-2 {
+  display: flex;
+  justify-content: space-between;
+}
