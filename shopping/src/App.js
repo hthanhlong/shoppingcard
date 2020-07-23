@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Navbar from "./Components/header/Navbar";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import data from "./data.json";
 
-// Test change
-// thay đổi ở đây nè
-// mình đang thay đổi ở master
 function App() {
+  const [products, setProducts] = useState(data.products);
+
   return (
     <>
       <CssBaseline />
