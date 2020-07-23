@@ -4,7 +4,7 @@
       "_id": 1,
       "title": "Dress 1",
       "image": "/images/dress1.jpg",
-      "description": "about Dress 1",
+      "description": "about Dress 1 Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "price": 19,
       "availableSizes": ["XL", "XXL", "M"]
     },
@@ -12,15 +12,15 @@
       "_id": 2,
       "title": "Dress 2",
       "image": "/images/dress2.jpg",
-      "description": "about Dress 2",
-      "price": 20,
+      "description": "about Dress 2 Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "price": 69,
       "availableSizes": ["XL", "XXL", "S"]
     },
     {
       "_id": 3,
       "title": "Dress 3",
       "image": "/images/dress3.jpg",
-      "description": "about Dress 3",
+      "description": "about Dress 3 Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "price": 45,
       "availableSizes": ["XL", "XXL", "S"]
     },
@@ -28,7 +28,7 @@
       "_id": 4,
       "title": "Dress 4",
       "image": "/images/dress4.jpg",
-      "description": "about Dress 4",
+      "description": "about Dress 4 Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "price": 60,
       "availableSizes": ["XL", "XXL", "L"]
     },
@@ -36,7 +36,7 @@
       "_id": 5,
       "title": "Dress 5",
       "image": "/images/dress5.jpg",
-      "description": "about Dress 5",
+      "description": "about Dress 5 Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "price": 19,
       "availableSizes": ["XL", "XXL", "L"]
     },
@@ -44,7 +44,7 @@
       "_id": 6,
       "title": "Dress 6",
       "image": "/images/dress6.jpg",
-      "description": "about Dress 6",
+      "description": "about Dress 6 Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "price": 35,
       "availableSizes": ["XL", "XXL", "S"]
     }

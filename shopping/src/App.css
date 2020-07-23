@@ -32,3 +32,14 @@ footer {
   justify-content: center;
   align-items: center;
 }
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+.productsarea {
+  flex: 3 60rem;
+}
+
+.sidebararea {
+  flex: 1 20rem;
+}
