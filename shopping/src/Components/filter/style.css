@@ -1,0 +1,15 @@
+.filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: red; */
+  height: 3rem;
+  margin: 1.2rem 3rem;
+}
+
+.filerfeature {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 15rem;
+}
