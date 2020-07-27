@@ -1,0 +1,28 @@
+.cartcontent {
+  display: flex;
+  flex-direction: column;
+}
+.cartcount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 0;
+  margin: 1.7rem 1.7rem 0rem 1.7rem;
+  border-bottom: solid black 1px;
+  max-width: 18rem;
+}
+.cartitem {
+  display: flex;
+  flex-direction: column;
+}
+
+.cartitem li {
+  list-style: none;
+  display: flex;
+}
+
+.cartitem img {
+  width: 3rem;
+  flex: 0 1;
+  margin-right: 0.5rem;
+}

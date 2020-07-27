@@ -5,13 +5,18 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import data from "./data.json";
 import Products from "./Components/products/Products";
 import Filter from "./Components/filter/Filter";
+import Cart from "./Components/Cart/Cart";
+import { purple } from "@material-ui/core/colors";
 
 function App() {
   const intialState = data.products;
   const [products, setProducts] = useState(intialState);
   const [size, setSize] = useState("");
   const [productsort, setProductsort] = useState("");
-  console.log("ơ ngoài,", productsort);
+  const [cartItem, setCartItem] = useState([]);
+
+  console.log(cartItem);
+
   /// Quan ly filter
   const handleOnChangeFilter = (e) => {
     if (e.target.value === "") {
@@ -64,6 +69,29 @@ function App() {
     );
   };
 
+  /// Quan ly them san pham
+  const handleAddToCart = (product) => {
+    const newCartItem = [...cartItem]; // clone ra 1 mang mới
+    let alreadyInCart = false; // Tạo trang thái cho sanr phảm
+    newCartItem.forEach((item) => {
+      // lăp qua mảng nếu để xem có sản phẩm trungf hay không
+      if (item._id === product._id) {
+        item.count++;
+        alreadyInCart = true;
+      }
+    });
+    if (!alreadyInCart) {
+      // them san pham moi
+      newCartItem.push({ ...product, count: 1 });
+    }
+    setCartItem(newCartItem); /// set gia trị cho mảng
+  };
+
+  /// Remove Item in Cart
+  const handleRemoveItem = (product) => {
+    setCartItem(cartItem.filter((item) => item._id !== product._id));
+  };
+
   return (
     <>
       <CssBaseline />
@@ -81,9 +109,11 @@ function App() {
                 handleFilter={handleOnChangeFilter}
                 handleSort={handleOnChangeSort}
               />
-              <Products products={products} />
+              <Products products={products} handleAddToCart={handleAddToCart} />
             </div>
-            <div className="sidebararea">Cartitem</div>
+            <div className="sidebararea">
+              <Cart cartItem={cartItem} handleRemoveItem={handleRemoveItem} />
+            </div>
           </div>
         </main>
         <footer>THIS IS FOOTER</footer>

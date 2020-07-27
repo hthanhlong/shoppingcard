@@ -2,7 +2,7 @@
   "products": [
     {
       "_id": 1,
-      "title": "Dress 1",
+      "title": "Dress 111111111111111111111",
       "image": "/images/dress1.jpg",
       "description": "about Dress 1 Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "price": 19,
@@ -10,7 +10,7 @@
     },
     {
       "_id": 2,
-      "title": "Dress 2",
+      "title": "Dress 22222222222222222",
       "image": "/images/dress2.jpg",
       "description": "about Dress 2 Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "price": 69,
@@ -18,7 +18,7 @@
     },
     {
       "_id": 3,
-      "title": "Dress 3",
+      "title": "Dress 3333333333333333",
       "image": "/images/dress3.jpg",
       "description": "about Dress 3 Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "price": 45,
@@ -26,7 +26,7 @@
     },
     {
       "_id": 4,
-      "title": "Dress 4",
+      "title": "Dress 444444444444444",
       "image": "/images/dress4.jpg",
       "description": "about Dress 4 Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "price": 60,
@@ -34,7 +34,7 @@
     },
     {
       "_id": 5,
-      "title": "Dress 5",
+      "title": "Dress 55555555555555",
       "image": "/images/dress5.jpg",
       "description": "about Dress 5 Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "price": 21,
@@ -42,7 +42,7 @@
     },
     {
       "_id": 6,
-      "title": "Dress 6",
+      "title": "Dress 66666666666666",
       "image": "/images/dress6.jpg",
       "description": "about Dress 6 Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "price": 35,
