@@ -42,4 +42,7 @@ footer {
 
 .sidebararea {
   flex: 1 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

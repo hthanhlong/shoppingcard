@@ -3,9 +3,13 @@
   display: flex;
   flex-wrap: wrap;
 }
+.products p {
+  word-wrap: break-word;
+  width: 18rem;
+}
 .products li {
   flex: 0 1;
-  height: 35rem;
+  max-height: 40rem;
   margin: 0.5rem;
   padding: 0.5rem;
   border: 1px solid black;
@@ -48,4 +52,19 @@
   background-color: #f0c040;
   border: 1px solid black;
   border-radius: 5px;
+}
+.modalmain {
+  display: flex;
+  flex-direction: row;
+}
+.modalmain img {
+  width: 20rem;
+}
+.buttonmodal {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}
+.modalcontent {
+  width: 55rem;
 }

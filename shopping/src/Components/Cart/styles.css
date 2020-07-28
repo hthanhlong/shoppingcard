@@ -1,6 +1,7 @@
 .cartcontent {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .cartcount {
   display: flex;
@@ -20,9 +21,40 @@
   list-style: none;
   display: flex;
 }
+.carttitle {
+  word-wrap: break-word;
+  max-width: 15rem;
+}
 
 .cartitem img {
   width: 3rem;
   flex: 0 1;
   margin-right: 0.5rem;
+}
+.cartbutton {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  margin-left: 10rem;
+}
+/* form */
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5rem;
+  align-items: center;
+  background-color: coral;
+  border-radius: 2px;
+  width: 20rem;
+}
+
+.formgroup {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  width: 18rem;
+}
+.submitbutton {
+  margin: 2rem 0;
+  text-align: center;
 }

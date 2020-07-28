@@ -6,16 +6,18 @@ import data from "./data.json";
 import Products from "./Components/products/Products";
 import Filter from "./Components/filter/Filter";
 import Cart from "./Components/Cart/Cart";
-import { purple } from "@material-ui/core/colors";
 
 function App() {
   const intialState = data.products;
   const [products, setProducts] = useState(intialState);
   const [size, setSize] = useState("");
   const [productsort, setProductsort] = useState("");
-  const [cartItem, setCartItem] = useState([]);
 
-  console.log(cartItem);
+  const [cartItem, setCartItem] = useState(
+    localStorage.getItem("cartItems")
+      ? JSON.parse(localStorage.getItem("cartItems"))
+      : []
+  );
 
   /// Quan ly filter
   const handleOnChangeFilter = (e) => {
@@ -79,17 +81,27 @@ function App() {
         item.count++;
         alreadyInCart = true;
       }
+      localStorage.setItem("cartItems", JSON.stringify(newCartItem));
     });
     if (!alreadyInCart) {
       // them san pham moi
       newCartItem.push({ ...product, count: 1 });
     }
     setCartItem(newCartItem); /// set gia trị cho mảng
+    localStorage.setItem("cartItems", JSON.stringify(newCartItem));
   };
 
   /// Remove Item in Cart
   const handleRemoveItem = (product) => {
-    setCartItem(cartItem.filter((item) => item._id !== product._id));
+    const cartItems = cartItem.filter((item) => item._id !== product._id);
+    setCartItem(cartItems);
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  };
+
+  const handleSubmitform = (order) => {
+    alert("Need to order");
+
+    console.log(order);
   };
 
   return (
@@ -112,7 +124,11 @@ function App() {
               <Products products={products} handleAddToCart={handleAddToCart} />
             </div>
             <div className="sidebararea">
-              <Cart cartItem={cartItem} handleRemoveItem={handleRemoveItem} />
+              <Cart
+                cartItem={cartItem}
+                handleRemoveItem={handleRemoveItem}
+                handleSubmitform2={handleSubmitform}
+              />
             </div>
           </div>
         </main>
