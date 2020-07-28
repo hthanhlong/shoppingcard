@@ -33,6 +33,9 @@ const Cart = (props) => {
           </ul>
         ))}
       </div>
+      <div className="cartbutton">
+        Total: $ {cartItem.reduce((a, c) => a + c.price * c.count, 0)}
+      </div>
     </div>
   );
 };
