@@ -1,17 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Navbar from "./Components/header/Navbar";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import data from "./data.json";
 import Products from "./Components/products/Products";
 import Filter from "./Components/filter/Filter";
 import Cart from "./Components/Cart/Cart";
+import axios from "axios";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import fetchData from "./action/productaction";
 
 function App() {
-  const intialState = data.products;
-  const [products, setProducts] = useState(intialState);
+  const [products, setProducts] = useState([]);
   const [size, setSize] = useState("");
   const [productsort, setProductsort] = useState("");
+
+  fetchData();
+
+  useEffect(() => {
+    axios
+      .get("http://127.0.0.1:8000/api/product/")
+      .then((res) => setProducts(res.data))
+      .catch((err) => console.log(err.message));
+  }, []);
 
   const [cartItem, setCartItem] = useState(
     localStorage.getItem("cartItems")
@@ -23,11 +32,11 @@ function App() {
   const handleOnChangeFilter = (e) => {
     if (e.target.value === "") {
       setSize(e.target.value);
-      setProducts([...intialState]);
+      setProducts([...products]);
     } else {
       setSize(e.target.value);
       setProducts(
-        [...intialState].filter(
+        [...products].filter(
           (product) => product.availableSizes.indexOf(e.target.value) >= 0
         )
       );

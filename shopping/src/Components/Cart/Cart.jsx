@@ -36,7 +36,7 @@ const Cart = (props) => {
       <Fade left cascade>
         <div className="cartitem">
           {cartItem.map((item) => (
-            <ul key={item._id}>
+            <ul key={item.id}>
               <li>
                 <img src={item.image} alt={item.title} />
                 <div className="cartmain">

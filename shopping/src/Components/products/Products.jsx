@@ -24,13 +24,15 @@ const Products = (props) => {
       <Fade bottom cascade>
         <ul className="products">
           {products.map((product) => (
-            <li key={product._id}>
+            <li key={product.id}>
               <div className="product">
                 <a href="#">
                   <img
                     onClick={() => openModal(product)}
                     src={product.image}
                     alt="productimage"
+                    width="290rem"
+                    height="320rem"
                   ></img>
                   <p>{product.title}</p>
                 </a>
