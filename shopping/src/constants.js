@@ -1,1 +1,3 @@
 export const GET_DATA = "GET_DATA";
+export const FILTER_PRODUCTS = "FILTER_PRODUCTS";
+export const SORTED_PRODUCTS = "SORTED_PRODUCTS";

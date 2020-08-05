@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./style.css";
+import { filterProduct } from "../../action/productaction";
+import { useDispatch, useSelector } from "react-redux";
 
 const Filter = (props) => {
-  const { sort, size, products, handleFilter, handleSort } = props;
+  const { size, sort, handleSort } = props;
+
+  const products = useSelector((state) => state.products.items);
+  const filter = useSelector((state) => state.products.filterproducts);
+  const dispatch = useDispatch();
+
+  const handleFilter = async (e) => {
+    const size = e.target.value;
+    return await dispatch(filterProduct(products, size));
+  };
+
   return (
     <div className="filter">
-      <div className="filtercount">Products {products}</div>
+      <div className="filtercount">
+        {" "}
+        {filter ? `Product ${filter.length} ` : ""}{" "}
+      </div>
       <form className="filerfeature">
         <div className="filtersort">
           <label htmlFor="sort"> Sort </label>
@@ -18,7 +33,7 @@ const Filter = (props) => {
         <div className="filterone">
           <label htmlFor="filter"> Filter </label>
           <select value={size} onChange={handleFilter}>
-            <option value="">ALL</option>
+            <option value="ALL">ALL</option>
             <option value="S">S</option>
             <option value="M">M</option>
             <option value="L">L</option>
