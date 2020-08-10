@@ -6,20 +6,21 @@ import Modal from "react-modal";
 import { Zoom } from "react-reveal";
 import { useSelector, useDispatch } from "react-redux";
 import { FetchData, filterProduct } from "../../action/productaction";
+import { addToCart } from "../../action/cartaction";
 
 const Products = (props) => {
-  const products = useSelector((state) => state.products.items);
-
-  const filter =
-    useSelector((state) => state.products.filterproducts) || products;
-
+  const filter = useSelector((state) => state.products.filterproducts);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(FetchData());
   }, []);
 
-  const { handleAddToCart } = props;
+  /// dispatch ADD TO CART
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
 
   const [product, setProduct] = useState(null);
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -54,7 +55,7 @@ const Products = (props) => {
                   </a>
                   <span className="producttext">{product.description}</span>
                   <div className="productaction">
-                    <div className="productprice">$ {product.price}</div>
+                    <div className="productprice">${product.price}</div>
                     <div className="btn">
                       <Button onClick={() => handleAddToCart(product)}>
                         Add to cart

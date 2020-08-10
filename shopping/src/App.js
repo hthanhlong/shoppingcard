@@ -18,56 +18,6 @@ function App() {
   );
 
   /// Quan ly filter
-  const handleOnChangeFilter = (e) => {
-    if (e.target.value === "") {
-      setSize(e.target.value);
-      setProducts([...products]);
-    } else {
-      setSize(e.target.value);
-      setProducts(
-        [...products].filter(
-          (product) => product.availableSizes.indexOf(e.target.value) >= 0
-        )
-      );
-    }
-  };
-
-  /// Quan ly sort
-
-  const handleOnChangeSort = async (e) => {
-    const sort = e.target.value;
-    setProductsort(sort);
-
-    //   Cách sort 1
-    // setProducts(
-    //   [...products].sort((a, b) =>
-    //     sort === "slowest"
-    //       ? a.price > b.price
-    //         ? 1
-    //         : -1
-    //       : sort === "highest"
-    //       ? a.price < b.price
-    //         ? 1
-    //         : -1
-    //       : a._id > b._id
-    //       ? 1
-    //       : -1
-    //   )
-    // );
-
-    // Cách sort 2
-    setProducts(
-      [...products].sort((a, b) => {
-        if (sort === "slowest") {
-          return a.price - b.price;
-        }
-        if (sort === "highest") {
-          return b.price - a.price;
-        }
-        return a._id - b.id;
-      })
-    );
-  };
 
   /// Quan ly them san pham
   const handleAddToCart = (product) => {
@@ -112,14 +62,8 @@ function App() {
         <main>
           <div className="content">
             <div className="productsarea">
-              <Filter
-                filter={size}
-                sort={productsort}
-                products={products.length}
-                handleFilter={handleOnChangeFilter}
-                handleSort={handleOnChangeSort}
-              />
-              <Products products={products} handleAddToCart={handleAddToCart} />
+              <Filter />
+              <Products products={products} />
             </div>
             <div className="sidebararea">
               <Cart

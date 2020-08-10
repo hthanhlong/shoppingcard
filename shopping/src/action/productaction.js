@@ -19,14 +19,23 @@ export const filterProduct = (products, size) => async (dispatch) => {
   });
 };
 
-// export const sortProducts = (filterProduct, sort) => (dispatch, getState) => {
-//   const sortedproducts = getState().products.filterProduct.slice();
+export const sortProducts = (filterproducts, sort) => (dispatch) => {
+  const products = filterproducts.slice();
 
-//   dispatch({
-//     type: SORTED_PRODUCTS,
-//     payload: {
-//       sort: sort,
-//       items: sortedproducts,
-//     },
-//   });
-// };
+  const sortedproducts = products.sort((a, b) => {
+    if (sort === "slowest") {
+      return a.price - b.price;
+    }
+    if (sort === "highest") {
+      return b.price - a.price;
+    }
+    return a.id - b.id;
+  });
+  dispatch({
+    type: SORTED_PRODUCTS,
+    payload: {
+      sort: sort,
+      items: sortedproducts,
+    },
+  });
+};

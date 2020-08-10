@@ -1,18 +1,24 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./style.css";
-import { filterProduct } from "../../action/productaction";
+import { filterProduct, sortProducts } from "../../action/productaction";
 import { useDispatch, useSelector } from "react-redux";
 
-const Filter = (props) => {
-  const { size, sort, handleSort } = props;
-
+const Filter = () => {
   const products = useSelector((state) => state.products.items);
   const filter = useSelector((state) => state.products.filterproducts);
+  const size = useSelector((state) => state.products.size);
+  const sort = useSelector((state) => state.products.sort);
+
   const dispatch = useDispatch();
 
   const handleFilter = async (e) => {
     const size = e.target.value;
     return await dispatch(filterProduct(products, size));
+  };
+
+  const handleSort = async (e) => {
+    const sort = e.target.value;
+    await dispatch(sortProducts(filter, sort));
   };
 
   return (
