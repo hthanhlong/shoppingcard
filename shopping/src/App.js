@@ -1,32 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./App.css";
-import Navbar from "./Components/header/Navbar";
-import Products from "./Components/products/Products";
-import Filter from "./Components/filter/Filter";
-import Cart from "./Components/Cart/Cart";
-import CssBaseline from "@material-ui/core/CssBaseline";
-
+import { Route, Switch } from "react-router-dom";
+import Login from "./Components/login/login";
+import Home from "./Components/Home";
 function App() {
   return (
     <>
-      <CssBaseline />
-      <div className="grid-container">
-        <header>
-          <Navbar />
-        </header>
-        <main>
-          <div className="content">
-            <div className="productsarea">
-              <Filter />
-              <Products />
-            </div>
-            <div className="sidebararea">
-              <Cart />
-            </div>
-          </div>
-        </main>
-        <footer>THIS IS FOOTER</footer>
-      </div>
+      <Switch>
+        <div className="grid-container">
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+        </div>
+      </Switch>
     </>
   );
 }

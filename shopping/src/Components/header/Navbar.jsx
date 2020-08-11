@@ -8,9 +8,7 @@ import styles from "./styles";
 const Navbar = (props) => {
   const { classes } = props;
 
-  const handleClick = (e) => {
-    console.log("hello");
-  };
+  const handleClick = (e) => {};
 
   return (
     <div>
@@ -21,12 +19,10 @@ const Navbar = (props) => {
               SHOPPING
             </Link>
           </Typography>
-          <Button
-            variant="outlined"
-            className={classes.button}
-            onClick={handleClick}
-          >
-            Login
+          <Button variant="outlined" className={classes.button}>
+            <Link className={classes.link} to="/login">
+              Login
+            </Link>
           </Button>
         </Toolbar>
       </AppBar>
