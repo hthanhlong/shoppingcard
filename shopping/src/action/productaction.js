@@ -19,8 +19,8 @@ export const filterProduct = (products, size) => async (dispatch) => {
   });
 };
 
-export const sortProducts = (products, sort) => (dispatch) => {
-  const sortedproducts = products.sort((a, b) => {
+export const sortProducts = (products, sort) => async (dispatch) => {
+  const sortedproducts = await products.slice().sort((a, b) => {
     if (sort === "slowest") {
       return a.price - b.price;
     }
@@ -29,7 +29,7 @@ export const sortProducts = (products, sort) => (dispatch) => {
     }
     return a.id - b.id;
   });
-  dispatch({
+  await dispatch({
     type: SORTED_PRODUCTS,
     payload: {
       sort: sort,

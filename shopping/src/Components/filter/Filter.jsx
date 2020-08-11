@@ -11,14 +11,14 @@ const Filter = () => {
 
   const dispatch = useDispatch();
 
-  const handleFilter = (e) => {
+  const handleFilter = async (e) => {
     const size = e.target.value;
-    return dispatch(filterProduct(products, size));
+    return await dispatch(filterProduct(products, size));
   };
 
-  const handleSort = (e) => {
+  const handleSort = async (e) => {
     const sort = e.target.value;
-    dispatch(sortProducts(products, sort));
+    await dispatch(sortProducts(filter, sort));
   };
 
   return (

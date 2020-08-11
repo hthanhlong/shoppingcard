@@ -5,11 +5,15 @@ import Fade from "react-reveal/Fade";
 import Modal from "react-modal";
 import { Zoom } from "react-reveal";
 import { useSelector, useDispatch } from "react-redux";
-import { FetchData, filterProduct } from "../../action/productaction";
+import { FetchData } from "../../action/productaction";
 import { addToCart } from "../../action/cartaction";
 
 const Products = () => {
-  const filter = useSelector((state) => state.products.filterproducts);
+  const products = useSelector((state) => state.products.items);
+  const filter =
+    useSelector((state) => state.products.filterproducts) || products;
+  console.log(filter);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
