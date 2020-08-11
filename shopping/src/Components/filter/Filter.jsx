@@ -5,20 +5,20 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Filter = () => {
   const products = useSelector((state) => state.products.items);
-  const filter = useSelector((state) => state.products.filterproducts);
   const size = useSelector((state) => state.products.size);
   const sort = useSelector((state) => state.products.sort);
+  const filter = useSelector((state) => state.products.filterproducts);
 
   const dispatch = useDispatch();
 
-  const handleFilter = async (e) => {
+  const handleFilter = (e) => {
     const size = e.target.value;
-    return await dispatch(filterProduct(products, size));
+    return dispatch(filterProduct(products, size));
   };
 
-  const handleSort = async (e) => {
+  const handleSort = (e) => {
     const sort = e.target.value;
-    await dispatch(sortProducts(filter, sort));
+    dispatch(sortProducts(products, sort));
   };
 
   return (
@@ -31,7 +31,7 @@ const Filter = () => {
         <div className="filtersort">
           <label htmlFor="sort"> Sort </label>
           <select value={sort} onChange={handleSort}>
-            <option>Lastest</option>
+            <option value="lastest">Lastest</option>
             <option value="slowest">Slowest</option>
             <option value="highest">Highest</option>
           </select>

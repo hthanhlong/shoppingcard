@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { FetchData, filterProduct } from "../../action/productaction";
 import { addToCart } from "../../action/cartaction";
 
-const Products = (props) => {
+const Products = () => {
   const filter = useSelector((state) => state.products.filterproducts);
   const dispatch = useDispatch();
 

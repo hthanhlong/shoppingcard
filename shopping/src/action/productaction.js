@@ -19,9 +19,7 @@ export const filterProduct = (products, size) => async (dispatch) => {
   });
 };
 
-export const sortProducts = (filterproducts, sort) => (dispatch) => {
-  const products = filterproducts.slice();
-
+export const sortProducts = (products, sort) => (dispatch) => {
   const sortedproducts = products.sort((a, b) => {
     if (sort === "slowest") {
       return a.price - b.price;

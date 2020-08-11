@@ -81,7 +81,8 @@ const Cart = () => {
       {cartItems.length !== 0 && (
         <div>
           <div className="cartbutton">
-            Total: $ {cartItems.reduce((a, c) => a + c.price * c.count, 0)}
+            Total: ${" "}
+            {cartItems.reduce((a, c) => a + c.price * c.count, 0).toFixed(2)}
             <div>
               <button onClick={() => setIsOpenForm(!isOpenForm)}>
                 Proceed
@@ -168,7 +169,9 @@ const Cart = () => {
                 <li>
                   {" "}
                   Total: ${" "}
-                  {cartItems.reduce((a, c) => a + c.price * c.count, 0)}
+                  {cartItems
+                    .reduce((a, c) => a + c.price * c.count, 0)
+                    .toFixed(2)}
                 </li>
               </ul>
               <div className="modalbtn">
