@@ -4,11 +4,10 @@ import "./styles.css";
 import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/styles";
 import styles from "./styles";
-
+import { useSelector } from "react-redux";
 const Navbar = (props) => {
   const { classes } = props;
-
-  const handleClick = (e) => {};
+  const users = useSelector((state) => state.token.users);
 
   return (
     <div>
@@ -19,11 +18,20 @@ const Navbar = (props) => {
               SHOPPING
             </Link>
           </Typography>
-          <Button variant="outlined" className={classes.button}>
-            <Link className={classes.link} to="/login">
-              Login
-            </Link>
-          </Button>
+
+          {users ? (
+            <div>
+              <Button variant="outlined" className={classes.button}>
+                {users.username}
+              </Button>
+            </div>
+          ) : (
+            <Button variant="outlined" className={classes.button}>
+              <Link className={classes.link} to="/login">
+                Login
+              </Link>
+            </Button>
+          )}
         </Toolbar>
       </AppBar>
     </div>

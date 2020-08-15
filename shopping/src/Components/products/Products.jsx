@@ -12,7 +12,6 @@ const Products = () => {
   const products = useSelector((state) => state.products.items);
   const filter =
     useSelector((state) => state.products.filterproducts) || products;
-  console.log(filter);
 
   const dispatch = useDispatch();
 

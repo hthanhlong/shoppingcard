@@ -8,16 +8,28 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart } from "../../action/cartaction";
 import { useForm } from "react-hook-form";
 
-const Cart = () => {
+const Cart = (props) => {
+  const { history } = props;
+
   //get cartiems from redux store//
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.cartItems);
+  const token = useSelector((state) => state.token.token);
+  console.log("outside", token);
   // remove from cart //
   const handleRemoveItem = (item) => {
     dispatch(removeFromCart(item));
   };
-  // animation form state
+  // animation form email
   const [isOpenForm, setIsOpenForm] = useState(false);
+
+  const handleProcess = () => {
+    if (token) {
+      setIsOpenForm(!isOpenForm);
+    } else {
+      history.push("/login");
+    }
+  };
 
   /// handle form
   const { register, handleSubmit, errors } = useForm();
@@ -29,24 +41,25 @@ const Cart = () => {
   };
   const [order, setOrder] = useState(initialState);
   const [isOpenModal, setIsOpenModal] = useState(false);
+
   const handleCheckOut = () => {
     setIsOpenModal(true);
   };
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const order = Object.assign(data, { cartItems: cartItems });
-    setOrder(order);
-    handleCheckOut();
+    await setOrder(order);
+    await handleCheckOut();
     localStorage.clear("cartItems");
   };
 
   ///////
 
+  //////////
   const closeModal = () => {
     setIsOpenModal(false);
     window.location = "/";
   };
-
-  ///
+  /////////
   return (
     <div className="cartcontent">
       <div className="cartcount">
@@ -84,9 +97,7 @@ const Cart = () => {
             Total: ${" "}
             {cartItems.reduce((a, c) => a + c.price * c.count, 0).toFixed(2)}
             <div>
-              <button onClick={() => setIsOpenForm(!isOpenForm)}>
-                Proceed
-              </button>
+              <button onClick={handleProcess}>Proceed</button>
             </div>
           </div>
         </div>

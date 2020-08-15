@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Navbar from "./header/Navbar";
 import Products from "./products/Products";
 import Filter from "./filter/Filter";
 import Cart from "./Cart/Cart";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
-function Home() {
+function Home(props) {
+  const { history } = props;
   return (
     <>
       <CssBaseline />
@@ -20,7 +21,7 @@ function Home() {
               <Products />
             </div>
             <div className="sidebararea">
-              <Cart />
+              <Cart history={history} />
             </div>
           </div>
         </main>
